@@ -1,0 +1,101 @@
+{% extends "home-base.html"%}
+{% block title %}Courses{% endblock %}
+{% block head%}
+  {{ super() }}
+  <style>
+  h1{
+    color:dark;
+  }
+  li{
+    color:dark;
+    text-align: center;
+  }
+  .padding{
+    padding-top: 10px
+  }
+
+  .modal-title{
+    color: grey;
+  }
+  </style>
+{% endblock%}
+{% block page_content%}
+
+
+<!-- Modal1 -->
+   <div class="modal fade" id="misy160Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="misy160ModalLabel">Course Descr</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <h3 class="text-center">MISY 160</h3>
+           <p>Introduction to computers: components and operations. Introduction to management information/decision support systems and the system development process. Emphasis on microcomputers and software packages used in business.</p>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <!-- Modal2 -->
+      <div class="modal fade" id="misy350Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="misy350ModalLabel">Course Descr</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3 class="text-center">MISY 350</h3>
+              <p>Covers concepts related to client side development, including cascading style sheets and JavaScript.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal3 -->
+         <div class="modal fade" id="econ360Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="econ360ModalLabel">Course Descr</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                 <h3 class="text-center">ECON 360</h3>
+                 <p>Normative, economic and legal foundations of government intervention in business, particularly antitrust and regulation; and the process and the effects of government policies.</p>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+           </div>
+         </div>
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5 text-center"> <i class="fa fa-book" aria-hidden="true"></i> Courses</h1>
+    <ul class ="list-unstyled ">
+        <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#misy160Modal"> MISY160</button></li>
+        <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#misy350Modal"> MISY350</button></li>
+        <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#econ360Modal"> ECON360</button></li>
+    </ul>
+
+  </div>
+
+{% endblock%}
