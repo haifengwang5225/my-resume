@@ -7,8 +7,13 @@ def index():
     return render_template('index.html')
 
 @app.route('/courses')
-def courses():
-    return render_template('courses-all.html')
+def get_all_courses():
+    courses =[
+    'MISY160',
+    'MISY350',
+    'ECON360'
+    ]
+    return render_template('courses-all.html', courses = courses)
 
 @app.route('/about')
 def about():

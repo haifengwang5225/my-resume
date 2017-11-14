@@ -21,81 +21,40 @@
 {% endblock%}
 {% block page_content%}
 
-
-<!-- Modal1 -->
-   <div class="modal fade" id="misy160Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="misy160ModalLabel">Course Descr</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-           <h3 class="text-center">MISY 160</h3>
-           <p>Introduction to computers: components and operations. Introduction to management information/decision support systems and the system development process. Emphasis on microcomputers and software packages used in business.</p>
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         </div>
-       </div>
-     </div>
-   </div>
-
-   <!-- Modal2 -->
-      <div class="modal fade" id="misy350Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="misy350ModalLabel">Course Descr</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3 class="text-center">MISY 350</h3>
-              <p>Covers concepts related to client side development, including cascading style sheets and JavaScript.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal3 -->
-         <div class="modal fade" id="econ360Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title" id="econ360ModalLabel">Course Descr</h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-               <div class="modal-body">
-                 <h3 class="text-center">ECON 360</h3>
-                 <p>Normative, economic and legal foundations of government intervention in business, particularly antitrust and regulation; and the process and the effects of government policies.</p>
-               </div>
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               </div>
+<div class="container">
+  <h1 class="mt-5 text-center"> <i class="fa fa-book" aria-hidden="true"></i> Courses</h1>
+    {% for course in courses%}
+    <ul class ="list-unstyled ">
+      <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#{{course}}">{{course}}</button>
+       <div class="modal fade" id="{{course}}" tabindex="-1" role="dialog" aria-labelledby="{{course}}ModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="{{course}}label">Course Descr</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+               <h3 class="text-center">{{course}}</h3>
+               {% if course == 'MISY160' %}
+               <p>Introduction to computers: components and operations. Introduction to management information/decision support systems and the system development process. Emphasis on microcomputers and software packages used in business.</p>
+               {% elif course == 'MISY350' %}
+               <p>Covers concepts related to client side development, including cascading style sheets and JavaScript.</p>
+               {% else %}
+               <p>Normative, economic and legal foundations of government intervention in business, particularly antitrust and regulation; and the process and the effects of government policies.</p>
+               {% endif %}
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
              </div>
            </div>
          </div>
-
-
-  <!-- Page Content -->
-  <div class="container">
-    <h1 class="mt-5 text-center"> <i class="fa fa-book" aria-hidden="true"></i> Courses</h1>
-    <ul class ="list-unstyled ">
-        <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#misy160Modal"> MISY160</button></li>
-        <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#misy350Modal"> MISY350</button></li>
-        <li class="padding"><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#econ360Modal"> ECON360</button></li>
+       </div>
+     </li>
     </ul>
+    {% endfor %}
 
-  </div>
+
 
 {% endblock%}
