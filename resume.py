@@ -71,6 +71,18 @@ def edit_professor(id):
         db.session.commit()
         return redirect(url_for('show_all_professors'))
 
+@app.route('/professor/delete/<int:id>', methods=['GET', 'POST'])
+def delete_professor(id):
+    professor = Professor.query.filter_by(id=id).first()
+    if request.method == 'GET':
+        return render_template('professor-delete.html', professor=professor)
+    if request.method == 'POST':
+        # delete the artist by id
+        # all related songs are deleted as well
+        db.session.delete(professor)
+        db.session.commit()
+        return redirect(url_for('show_all_professors'))
+
 @app.route('/courses')
 def show_all_courses():
     courses = Course.query.all()
@@ -115,6 +127,18 @@ def edit_song(id):
         db.session.commit()
         return redirect(url_for('show_all_courses'))
 
+@app.route('/course/delete/<int:id>', methods=['GET', 'POST'])
+def delete_course(id):
+    course = Course.query.filter_by(id=id).first()
+    professors = Professor.query.all()
+    if request.method == 'GET':
+        return render_template('course-delete.html', course=course, professors=professors)
+    if request.method == 'POST':
+        # delete the artist by id
+        # all related songs are deleted as well
+        db.session.delete(course)
+        db.session.commit()
+        return redirect(url_for('show_all_courses'))
 
 
 if __name__ == '__main__':
